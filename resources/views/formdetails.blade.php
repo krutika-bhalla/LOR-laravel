@@ -134,7 +134,7 @@
 
     <div class="container">
 {{--        <div class="jumbotron">--}}
-            <form action="{{route('save-formdetails')}}" method="POST">
+            <form action="{{route('save-formdetails')}}" id="no-back" method="POST">
                 @csrf
                 <center> <h1>FORM DETAILS</h1> </center> <!--css left-->
 
@@ -169,6 +169,7 @@
                         </tr>
                         </tbody>
                     </TABLE>
+                    
 {{--                    <INPUT type="button" value="Add Row" onClick="addRow('dataTable')" />--}}
 
 {{--                    <INPUT type="button" value="Delete Row" onClick="deleteRow('dataTable')" />--}}
@@ -204,18 +205,30 @@
                     <label for="dateofissue">Date of Issue of RL</label>
                     <input type="date" class="form-control" id="exampleDate" placeholder="Enter Date of Issue of RL" name="dateofissue" required>
                 </div>
-{{--                <div class="form-group">--}}
-{{--                    <label>Upload Letter of Recommendation</label>--}}
-{{--                    <input type="file" class="form-control-file" name="imglor[]" multiple required>--}}
-{{--                </div>--}}
-{{--                <div class="form-group">--}}
-{{--                    <label>Upload Scorecard/s</label>--}}
-{{--                    <input type="file" class="form-control-file" name="imgscorecards[]" multiple required>--}}
-{{--                </div>--}}
-                <button type="submit" class="btn btn-success" value="Submit Page">Submit</button>
+                <div class="form-group">
+                    <label>Upload Letter of Recommendation</label>
+                    <input type="file" class="form-control-file" name="imglor[]" multiple required>
+                </div>
+                <div class="form-group">
+                    <label>Upload Scorecard/s</label>
+                    <input type="file" class="form-control-file" name="imgscorecards[]" multiple required>
+                </div>
+                <button type="submit" class="btn btn-success" onclick="logMeOut(event)" value="Submit Page">Submit</button>
             </form>
         </div>
-{{--    </div>--}}
+    <script>
+        function logMeOut(e) {
+            e.preventDefault();
+            window.location.hash="no-back-button";
+            window.location.hash="Again-No-back-button";//again because google chrome don't insert first hash into history
+            window.onhashchange=function(){window.location.hash="no-back-button";}
+            document.getElementById('no-back').submit();
+        }
+    </script>
+
+
+
+    {{--    </div>--}}
 
     <script src="" async defer></script>
     </body>

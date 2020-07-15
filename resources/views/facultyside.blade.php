@@ -1,11 +1,11 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.fapp')
+@section('contents')
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered w-20">
         <thead>
         <tr>
             <th scope="col">Name of Student</th>
-            <th scope="col">Somaiya Email</th>
+{{--            <th scope="col">Somaiya Email</th>--}}
             <th scope="col">Student Email</th>
             <th scope="col">Date of Issue</th>
             <th scope="col">View Form</th>
@@ -19,9 +19,9 @@
 
                     <tr>
                     <td>{{$fd->name}}</td>
-                    @foreach($users as $user)
-                        <td>{{$user->email}}</td>
-                    @endforeach
+{{--                    @foreach($users as $user)--}}
+{{--                        <td>{{$user->email}}</td>--}}
+{{--                    @endforeach--}}
                     <td>{{$fd->email}}</td>
                     <td>{{date('d/m/Y' , strtotime($fd->dateofissue))}}</td>
 

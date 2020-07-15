@@ -80,13 +80,12 @@
 
                             @else
                                 <a href="{{ route('login') }}">Student Login</a>
-
+                                <a href="auth/flogin">Staff Login</a>
 {{--                                @if (Route::has('register'))--}}
 {{--                                    <a href="{{ route('register') }}">Student Register</a>--}}
 {{--                                @endif--}}
                             @endauth
 
-                            <a href="auth/flogin">Staff Login</a>
                         </div>
                     @endif
 

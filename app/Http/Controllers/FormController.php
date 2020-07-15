@@ -30,10 +30,12 @@ class FormController extends Controller
             'passoutyear'=>'required',
             'refno' => 'required|integer',
             'dateofissue'   => 'required|date|after:yesterday',
+
         ]);
 
             $id = Auth::User()->id;
 
+//        $users = User::all();
 
         $formfaculty = new FormFaculty();
         $formfaculty->facname = $request->facname;
@@ -54,21 +56,8 @@ class FormController extends Controller
         $formdetails->user_id = $id;
         $formdetails->save();
 
-        return redirect('/');
+        return redirect('/form-filled-successfully');
     }
-    //view forms of all students
-    public function viewAllForms(){
-        $users = User::all();
-        $formdetails = FormDetails::all();
-        $formfaculty = FormFaculty::all();
-        return view('/facultyside')->with('users', $users)->with('formdetails', $formdetails)->with('formfaculty', $formfaculty);
-    }
-    //view one form
-    public function view($id){
-        $users = User::find($id);
-        $formdetails = FormDetails::where('user_id', $id)->get();
-        $formfaculty = FormFaculty::where('user_id', $id)->get();
-        return view('/viewform')->with('users', $users)->with('formdetails', $formdetails)->with('formfaculty', $formfaculty);
-    }
+
 
 }

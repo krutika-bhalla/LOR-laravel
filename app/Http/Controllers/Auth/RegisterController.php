@@ -41,7 +41,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:faculty');
+        //$this->middleware('guest:faculty');
     }
 
     /**
@@ -57,30 +57,6 @@ class RegisterController extends Controller
             'email' => ['required', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-    }
-
-    public function showFacultyRegisterForm()
-    {
-        return view('auth.fregister');
-    }
-
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-
-    protected function createFaculty(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        Faculty::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        return redirect()->intended('/facultyside');
     }
 
     protected function create(array $data)
