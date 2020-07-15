@@ -6,6 +6,7 @@ use App\FormDetails;
 use App\FormFaculty;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FormController extends Controller
 {
@@ -31,7 +32,7 @@ class FormController extends Controller
             'dateofissue'   => 'required|date|after:yesterday',
         ]);
 
-            $id = Auth::user()->id;
+            $id = Auth::User()->id;
 
 
         $formfaculty = new FormFaculty();
@@ -57,10 +58,10 @@ class FormController extends Controller
     }
     //view forms of all students
     public function viewAllForms(){
-        //$users = User::all();
+        $users = User::all();
         $formdetails = FormDetails::all();
         $formfaculty = FormFaculty::all();
-        return view('/facultyside')->with('formdetails', $formdetails)->with('formfaculty', $formfaculty);
+        return view('/facultyside')->with('users', $users)->with('formdetails', $formdetails)->with('formfaculty', $formfaculty);
     }
     //view one form
     public function view($id){

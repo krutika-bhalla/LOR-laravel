@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Faculty;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -39,6 +41,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:faculty');
     }
 
     /**
@@ -51,10 +54,16 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'regex:([A-Za-z0-9.]+@somaiya.edu)', 'max:255', 'unique:users'],
+            'email' => ['required', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
+
+    public function showFacultyRegisterForm()
+    {
+        return view('auth.fregister');
+    }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -62,6 +71,18 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+    protected function createFaculty(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        Faculty::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect()->intended('/facultyside');
+    }
+
     protected function create(array $data)
     {
         return User::create([

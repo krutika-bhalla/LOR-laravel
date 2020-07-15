@@ -76,19 +76,20 @@
                     @if (Route::has('login'))
                         <div class="links">
                             @auth
-                                    <a href="#">ThankYou for filling the form</a>
-
-                                    <a href="{{ url('/formdetails') }}">Form</a>
+                                 <a href="{{ url('/formdetails') }}">Form</a>
 
                             @else
-                                <a href="{{ route('login') }}">Login</a>
+                                <a href="{{ route('login') }}">Student Login</a>
 
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}">Register</a>
-                                @endif
+{{--                                @if (Route::has('register'))--}}
+{{--                                    <a href="{{ route('register') }}">Student Register</a>--}}
+{{--                                @endif--}}
                             @endauth
+
+                            <a href="auth/flogin">Staff Login</a>
                         </div>
                     @endif
+
                 </div>
             </div>
         </div>

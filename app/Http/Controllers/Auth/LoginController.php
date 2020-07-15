@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+//use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+//    protected $redirectTo = '/facultyside';
 
     /**
      * Create a new controller instance.
@@ -35,6 +40,29 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+//        $this->middleware('guest')->except('logout');
+//        $this->middleware('guest:faculty')->except('logout');
     }
+
+    public function showFacultyLoginForm()
+    {
+        return view('auth.flogin');
+    }
+
+    public function facultyLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('faculty')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/facultyside');
+        }
+        return back()->withInput($request->only('email', 'remember'));
+    }
+
+
+
 }
