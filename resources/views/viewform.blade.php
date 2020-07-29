@@ -11,7 +11,10 @@
             </h1>
             <h3 style="text-align: center;">Letter of Recommendation</h3>
         </div><br>
+        {{dd($formfaculty)}}
         @foreach($formdetails as $fd)
+            {{dd($fd)}}
+
         <label>Name: </label> {{$fd->name}}
 
         @endforeach

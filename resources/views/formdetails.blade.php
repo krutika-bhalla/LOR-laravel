@@ -134,7 +134,7 @@
 
     <div class="container">
 {{--        <div class="jumbotron">--}}
-            <form action="{{route('save-formdetails')}}" enctype="multipart/form-data" id="no-back" method="POST">
+            <form action="{{route('save-formdetails')}}" method="POST">
                 @csrf
                 <center> <h1>FORM DETAILS</h1> </center> <!--css left-->
 
@@ -154,31 +154,79 @@
                         <thead>
                         <tr>
 
-                            <th width="300">Faculty Name</th>
-                            <th width="30">Number of Letterheads</th>
-                            <th width="250">Branch</th>
+                            <th width="300" style="text-align: center">Faculty Name</th>
+                            <th width="30" style="text-align: center">Letterheads</th>
+                            <th width="250" style="text-align: center">Branch</th>
 
                         </tr>
                         </thead>
                         <tbody id="dataTable">
                         <tr id="duplicate">
-                            <td><input type='text' class='form-control' required name='facname[]'></td>
-                            <td><input type='number' min="1" class='form-control' required name='noheads[]' /></td>
-                            <td><input type='text' class='form-control' required name='facbranch[]' /></td>
+                            <td><input type="text" class='form-control' required name="facname[]"></td>
+                            <td><input type="number" min="1" class='form-control' required name="noheads[]"></td>
+                            <td><input type="text" class='form-control' required  name="facbranch[]"></td>
                         </tr>
                         </tbody>
 
                     </TABLE>
                     <div class="row">
-                        <div class="col col-md-6 text-center">
-                            <button type="button"  class="btn btn-outline-success" id="add-expense"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
+                        <div class="col-md-4 text-center">
+                            <button type="button"  class="btn btn-outline-primary" id="add-expense"><i class="fa fa-plus" aria-hidden="true"></i> Add</button>
                         </div>
-                        <div class="col col-md-6 text-center"><button type="button" class="btn btn-outline-danger" id="remove-expense"><i class="fa fa-minus" aria-hidden="true"></i> Remove</button></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4 text-center"><button type="button" class="btn btn-outline-danger" id="remove-expense"><i class="fa fa-minus" aria-hidden="true"></i> Remove</button></div>
                     </div>
 
-{{--                    <INPUT type="button" value="Add Row" onClick="addRow('dataTable')" />--}}
+                    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+                    <script
+                        src="https://code.jquery.com/jquery-3.5.1.min.js"
+                        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+                        crossorigin="anonymous"></script>
 
-{{--                    <INPUT type="button" value="Delete Row" onClick="deleteRow('dataTable')" />--}}
+                    <script>
+                        $(document).ready(function(){
+                            // $('#remove-expense').hide();
+                            $('#add-expense').on('click', function(){
+                                $('#remove-expense').fadeIn("1500");
+                                $('#dataTable').append('<tr id="append"><td><input type="text" class= "form-control" required name="facname[]"></td><td><input type="number" min="1" class="form-control" required name="noheads[]"></td><td><input type="text" class="form-control" required  name="facbranch[]"></td></tr>');
+                                // $('#remove-expense').on('click', function(){
+                                //     $('.append').parent().remove();
+                                // });
+                                $('#remove-expense').on('click', function() {
+                                    $('#append').last().remove();
+                                });
+                            });
+                            $('#project-form').submit(function(e) {
+                                e.preventDefault();
+                                // get all the inputs into an array.
+                                var $inputs = $('#project-form :input');
+                                //Remove Button
+                                // not sure if you wanted this, but I thought I'd add it.
+                                // get an associative array of just the values.
+                                var values = {};
+                                $inputs.each(function() {
+                                    values[this.name] = $(this).val();
+                                });
+                                console.log(values);
+
+                                {{--const {_token, facname, facbranch, noheads} = values;--}}
+
+                                {{--$.post("{{route('save-formdetails')}}"),--}}
+                                {{--    {--}}
+                                {{--        _token, facname, facbranch, noheads--}}
+                                {{--    },--}}
+                                {{--    function (date, status) {--}}
+                                {{--        if(data.status == 'success'){--}}
+                                {{--            alert('success');--}}
+                                {{--            location.reload(true);--}}
+                                {{--        }--}}
+                                {{--        else{--}}
+                                {{--            alert('failed');--}}
+                                {{--        }--}}
+                                {{--    }--}}
+                            });
+                        });
+                    </script>
 
                 </div>
 
@@ -224,40 +272,7 @@
                 <button type="submit" class="btn btn-success" value="Submit Page">Submit</button>
             </form>
         </div>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script
-        src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-        crossorigin="anonymous"></script>
 
-    <script>
-        $(document).ready(function(){
-            // $('#remove-expense').hide();
-            $('#add-expense').on('click', function(){
-                $('#remove-expense').fadeIn("1500");
-                $('#dataTable').append('<tr id="append"><td><input type=\'name\' class=\'form-control\' required name=\'facname\'></td><td><input type=\'number\' min="1" class=\'form-control\' required name=\'noheads\' /></td><td><input type=\'name\' class=\'form-control\' required name=\'facbranch\' /></td></tr>');
-                // $('#remove-expense').on('click', function(){
-                //     $('.append').parent().remove();
-                // });
-                $('#remove-expense').on('click', function() {
-                    $('#append').last().remove();
-                });
-            });
-            $('#project-form').submit(function(e) {
-                e.preventDefault();
-                // get all the inputs into an array.
-                var $inputs = $('#project-form :input');
-                //Remove Button
-                // not sure if you wanted this, but I thought I'd add it.
-                // get an associative array of just the values.
-                var values = {};
-                $inputs.each(function() {
-                    values[this.name] = $(this).val();
-                });
-                console.log(values);
-            });
-        });
-    </script>
 
 
 

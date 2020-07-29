@@ -6,6 +6,7 @@ use App\FormDetails;
 use App\FormFaculty;
 use App\FormImages;
 use App\User;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -19,22 +20,23 @@ class FormController extends Controller
     public function store(Request $request){
         //Validations
 
-        $request->validate([
+        $validator = Validator::make($request->all(),[
 
             'name'  => 'required|string',
             'course'  => 'required|string',
-            'facname'  => 'required|max: 50',
-            'facname.*'  => 'required|max: 50',
-            'noheads'   => 'required|numeric',
-            'noheads.*'   => 'required|numeric',
-            'facbranch'  => 'required|max: 50',
-            'facbranch.*'  => 'required|max: 50',
             'rl'         => 'required|integer',
             'mobileno' => 'required|integer',
             'email' => 'required|string|email|max: 40',
             'passoutyear'=>'required',
             'refno' => 'required|integer',
             'dateofissue'   => 'required|date|after:yesterday',
+
+            'facname'  => 'required|string|max: 50',
+            'facname.*'  => 'required|string|max: 50',
+            'noheads'   => 'required|numeric',
+            'noheads.*'   => 'required|numeric',
+            'facbranch'  => 'required|string|max: 50',
+            'facbranch.*'  => 'required|string|max: 50',
 //            'imagelor'  => 'required|max:9999',
 //            'imagelor.*'  => 'required|max:9999',
 //            'file.*' => 'max:9999',
@@ -42,7 +44,7 @@ class FormController extends Controller
 //            'imagescorecards.*'  => 'required|mimes:jpg,jpeg,png|max:9999',
 
         ]);
-//        $id = Auth::User()->id;
+//
 //        $user = Auth::User()->name;
 ////        dd($id);
 ////        dd($user);
@@ -71,17 +73,7 @@ class FormController extends Controller
 
 
 
-        $users = User::all();
-        for($i = 0; $i < count($request->facname); $i++) {
-            $formfaculty = new FormFaculty();
-            $formfaculty->facname = $request->facname[$i];
-            $formfaculty->noheads = $request->noheads[$i];
-            $formfaculty->facbranch = $request->facbranch[$i];
-            $formfaculty->user_id = $users->id;
-            $formfaculty->save();
-        }
-
-
+        $id = Auth::User()->id;
         $formdetails = new FormDetails();
         $formdetails->name = $request->name;
         $formdetails->course = $request->course;
@@ -91,8 +83,17 @@ class FormController extends Controller
         $formdetails->dateofissue = $request->dateofissue;
         $formdetails->refno = $request->refno;
         $formdetails->rl = $request->rl;
-        $formdetails->user_id = $users->id;
+        $formdetails->user_id = $id;
         $formdetails->save();
+
+        for($i = 0; $i < count($request->facbranch); $i++) {
+            $formfaculty = new FormFaculty();
+            $formfaculty->facname = $request->facname[$i];
+            $formfaculty->noheads = $request->noheads[$i];
+            $formfaculty->facbranch = $request->facbranch[$i];
+            $formfaculty->user_id = $id;
+            $formfaculty->save();
+        }
 
         return redirect('/form-filled-successfully');
     }
