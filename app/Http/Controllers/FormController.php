@@ -37,7 +37,7 @@ class FormController extends Controller
             'noheads.*'   => 'required|numeric',
             'facbranch'  => 'required|string|max: 50',
             'facbranch.*'  => 'required|string|max: 50',
-            'imagelor'  => 'required|mimes:jpg,jpeg,png|max:9999',
+//            'imagelor'  => 'required|mimes:jpg,jpeg,png|max:9999',
 //            'imagelor.*'  => 'required|max:9999',
 //            'file.*' => 'max:9999',
 //            ,
@@ -58,19 +58,19 @@ class FormController extends Controller
         $formdetails->user_id = $id;
         $formdetails->save();
 
-        $formimages = new FormImages();
-        if($request->hasFile('imagelor')){
-            $file = $request->file('imagelor');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/', $filename);
-            $uploads->imagelor = $filename;
-        }
-        else{
-            return $request;
-            $uploads->imagelor = '';
-        }
-        $formimages->save();
+//        $formimages = new FormImages();
+//        if($request->hasFile('imagelor')){
+//            $file = $request->file('imagelor');
+//            $extension = $file->getClientOriginalExtension();
+//            $filename = time() . '.' . $extension;
+//            $file->move('uploads/', $filename);
+//            $uploads->imagelor = $filename;
+//        }
+//        else{
+//            return $request;
+//            $uploads->imagelor = '';
+//        }
+//        $formimages->save();
 
         for($i = 0; $i < count($request->facbranch); $i++) {
             $formfaculty = new FormFaculty();
