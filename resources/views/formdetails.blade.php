@@ -209,21 +209,6 @@
                                 });
                                 console.log(values);
 
-                                {{--const {_token, facname, facbranch, noheads} = values;--}}
-
-                                {{--$.post("{{route('save-formdetails')}}"),--}}
-                                {{--    {--}}
-                                {{--        _token, facname, facbranch, noheads--}}
-                                {{--    },--}}
-                                {{--    function (date, status) {--}}
-                                {{--        if(data.status == 'success'){--}}
-                                {{--            alert('success');--}}
-                                {{--            location.reload(true);--}}
-                                {{--        }--}}
-                                {{--        else{--}}
-                                {{--            alert('failed');--}}
-                                {{--        }--}}
-                                {{--    }--}}
                             });
                         });
                     </script>
@@ -259,10 +244,10 @@
                     <label for="dateofissue">Date of Issue of RL</label>
                     <input type="date" class="form-control" id="exampleDate" placeholder="Enter Date of Issue of RL" name="dateofissue" required>
                 </div>
-{{--                <div class="form-group">--}}
-{{--                    <label>Upload Letter of Recommendation</label>--}}
-{{--                    <input type="file" class="form-control-file" name="imagelor[]" multiple required>--}}
-{{--                </div>--}}
+                <div class="form-group">
+                    <label>Upload Letter of Recommendation</label>
+                    <input type="file" class="form-control-file" name="imagelor" required>
+                </div>
 {{--                <div class="form-group">--}}
 {{--                    <label>Upload Scorecard/s</label>--}}
 {{--                    <input type="file" class="form-control-file" name="imagelor[]" multiple required>--}}

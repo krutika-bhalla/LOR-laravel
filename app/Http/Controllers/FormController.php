@@ -37,41 +37,13 @@ class FormController extends Controller
             'noheads.*'   => 'required|numeric',
             'facbranch'  => 'required|string|max: 50',
             'facbranch.*'  => 'required|string|max: 50',
-//            'imagelor'  => 'required|max:9999',
+            'imagelor'  => 'required|mimes:jpg,jpeg,png|max:9999',
 //            'imagelor.*'  => 'required|max:9999',
 //            'file.*' => 'max:9999',
-//            'imagescorecards'  => 'required|mimes:jpg,jpeg,png|max:9999',
+//            ,
 //            'imagescorecards.*'  => 'required|mimes:jpg,jpeg,png|max:9999',
 
         ]);
-//
-//        $user = Auth::User()->name;
-////        dd($id);
-////        dd($user);
-//        $user_name = $user;
-//        $index = 1;
-//        $filenames = [];
-//        unset($request["_token"]);
-//        $files = $request->all();
-//        foreach ($files as $item) {
-//            $file = $item;
-////            dd($file);
-//            $extension = $file->getClientOriginalExtension();
-//            dd($extension);
-//            $file = $item;
-//            $img_name = strtolower(str_replace(' ','',$user_name));
-//            $filename = $img_name. $index .'.'.time().'.'.$extension; // this will be inserted in db
-//            $filenames[] = $filename;
-//            $destinationPath = 'uploads';
-//            $img = FormImages::make($file->path());
-//            $img->resize(300, 300, function ($constraint) {
-//                $constraint->aspectRatio();
-//            })->save($destinationPath.'/'.$filename);
-//
-//            $index++;
-//        }
-
-
 
         $id = Auth::User()->id;
         $formdetails = new FormDetails();
@@ -85,6 +57,20 @@ class FormController extends Controller
         $formdetails->rl = $request->rl;
         $formdetails->user_id = $id;
         $formdetails->save();
+
+        $formimages = new FormImages();
+        if($request->hasFile('imagelor')){
+            $file = $request->file('imagelor');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/', $filename);
+            $uploads->imagelor = $filename;
+        }
+        else{
+            return $request;
+            $uploads->imagelor = '';
+        }
+        $formimages->save();
 
         for($i = 0; $i < count($request->facbranch); $i++) {
             $formfaculty = new FormFaculty();
