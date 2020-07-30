@@ -134,7 +134,7 @@
 
     <div class="container">
 {{--        <div class="jumbotron">--}}
-            <form action="{{route('save-formdetails')}}" method="POST">
+            <form action="{{route('save-formdetails')}}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <center> <h1>FORM DETAILS</h1> </center> <!--css left-->
 
@@ -244,10 +244,10 @@
                     <label for="dateofissue">Date of Issue of RL</label>
                     <input type="date" class="form-control" id="exampleDate" placeholder="Enter Date of Issue of RL" name="dateofissue" required>
                 </div>
-{{--                <div class="form-group">--}}
-{{--                    <label>Upload Letter of Recommendation</label>--}}
-{{--                    <input type="file" class="form-control-file" name="imagelor" required>--}}
-{{--                </div>--}}
+                <div class="form-group">
+                    <label>Upload Letter of Recommendation</label>
+                    <input type="file" class="form-control-file" name="imagelor" required>
+                </div>
 {{--                <div class="form-group">--}}
 {{--                    <label>Upload Scorecard/s</label>--}}
 {{--                    <input type="file" class="form-control-file" name="imagelor[]" multiple required>--}}

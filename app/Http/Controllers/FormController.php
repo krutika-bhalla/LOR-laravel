@@ -37,7 +37,7 @@ class FormController extends Controller
             'noheads.*'   => 'required|numeric',
             'facbranch'  => 'required|string|max: 50',
             'facbranch.*'  => 'required|string|max: 50',
-//            'imagelor'  => 'required|mimes:jpg,jpeg,png|max:9999',
+//            'imagelor' => 'required|mimes:jpg,jpeg,png|max:9999',
 //            'imagelor.*'  => 'required|max:9999',
 //            'file.*' => 'max:9999',
 //            ,
@@ -58,19 +58,19 @@ class FormController extends Controller
         $formdetails->user_id = $id;
         $formdetails->save();
 
-//        $formimages = new FormImages();
-//        if($request->hasFile('imagelor')){
-//            $file = $request->file('imagelor');
-//            $extension = $file->getClientOriginalExtension();
-//            $filename = time() . '.' . $extension;
-//            $file->move('uploads/', $filename);
-//            $uploads->imagelor = $filename;
-//        }
-//        else{
-//            return $request;
-//            $uploads->imagelor = '';
-//        }
-//        $formimages->save();
+        //$file = new FormImages();
+//        $file = $request->imagelor;
+//        $extension = $file->getClientOriginalExtension();
+//        $file = $request->file('imagelor');
+//        $destinationPath = 'uploads';
+//        $img_name = strtolower(str_replace(' ','',$request->name));
+//        $filename = $img_name.'.'.time().'.'.$extension; //this shall insert in db
+//        //resizing
+//        $img = FormImages::make($file->getRealPath());
+//        $img->resize(1000,1000, function ($constraint){
+//            $constraint->aspectRatio();
+//        })->save($destinationPath.'/'.$filename);
+
 
         for($i = 0; $i < count($request->facbranch); $i++) {
             $formfaculty = new FormFaculty();
