@@ -45,11 +45,11 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('flogin') }}">{{ __('Faculty Login') }}</a>
+                            <a class="nav-link" href="{{ route('f-login') }}">{{ __('Staff Login') }}</a>
                         </li>
-                        @if (Route::has('fregister'))
+                        @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('fregister') }}">{{ __('Faculty Register') }}</a>
+                                <a class="nav-link" href="{{ route('register-faculty') }}">{{ __('Staff Register') }}</a>
                             </li>
                         @endif
                     @else

@@ -22,12 +22,12 @@ Auth::routes();
 //Route::get('/flogin', 'Auth\LoginController@showFacultyLoginForm');
 //Route::get('/flogin', 'Auth\LoginController@facultyLogin')->name('faculty-login');
 
-Route::view('/auth/flogin', 'auth.flogin');
+Route::get('/auth/flogin', 'Auth\FacultyLoginController@showFacultyLoginForm')->name('f-login');
 Route::post('/auth/attemptLogin', 'Auth\FacultyLoginController@facultyLogin')->name('flogin');
 
 
-Route::get('auth/fregister', 'Auth\FacultyRegisterController@showFacultyRegisterForm')->name('register-faculty');
-Route::post('auth/fregister', 'Auth\FacultyRegisterController@createAdmin');
+Route::get('/auth/fregister', 'Auth\FacultyRegisterController@showFacultyRegisterForm')->name('register-faculty');
+Route::post('/auth/fregister', 'Auth\FacultyRegisterController@createAdmin')->name('faculty-credentials');
 
 
 //Route::get('/home', 'HomeController@index')->name('home');

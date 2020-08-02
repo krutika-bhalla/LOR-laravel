@@ -24,7 +24,7 @@ class FacultyLoginController extends Controller
         //Validate form data
         $this->validate($request, [
             'email'   => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:8'
         ]);
 
         //attempt to log the user in --> if logged in then redirect
