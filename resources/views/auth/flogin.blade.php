@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Faculty Login') }}</div>
+                    <div class="card-header"><h2 style="text-align: center">
+                            Staff Login
+                        </h2></div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('flogin') }}">

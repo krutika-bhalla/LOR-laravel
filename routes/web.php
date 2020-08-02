@@ -27,7 +27,7 @@ Route::post('/auth/attemptLogin', 'Auth\FacultyLoginController@facultyLogin')->n
 
 
 Route::get('/auth/fregister', 'Auth\FacultyRegisterController@showFacultyRegisterForm')->name('register-faculty');
-Route::post('/auth/fregister', 'Auth\FacultyRegisterController@createAdmin')->name('faculty-credentials');
+Route::post('/facultyside', 'Auth\FacultyRegisterController@createFaculty')->name('faculty-credentials');
 
 
 //Route::get('/home', 'HomeController@index')->name('home');

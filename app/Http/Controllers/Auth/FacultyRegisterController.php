@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 //use Validator;
 
+
 class FacultyRegisterController extends Controller
 {
     public function showFacultyRegisterForm()
@@ -29,12 +30,12 @@ class FacultyRegisterController extends Controller
 
     protected function createFaculty(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $validator = Validator::make($request->all(),[
         Faculty::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);
+        ])]);
         return redirect()->intended('/facultyside');
     }
 
