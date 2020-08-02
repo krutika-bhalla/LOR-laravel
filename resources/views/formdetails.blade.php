@@ -257,7 +257,7 @@
                     <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor3" required>
                 </div>
                 <script>
-                    $(document).ready(function(e){
+                   $('#project-form').submit(function(e) 
                         e.preventDefault();
                         if(i == 3) {
                             $('.custom-file input').change(function (e) {
