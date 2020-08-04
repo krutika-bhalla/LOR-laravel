@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>LOA Management</title>
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +27,7 @@
                 @auth
                     <a class="navbar-brand" href="#">Form
                 @else
-                    <a class="navbar-brand" href="{{ url('/') }}">Home
+                    <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" style="max-height: 50px; max-width: 50px;">
                 @endauth
 {{--                    {{ config('app.name', 'Laravel') }}--}}
                 </a>

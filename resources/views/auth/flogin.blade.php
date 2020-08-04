@@ -1,16 +1,16 @@
 @extends('layouts.fapp')
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;800&display=swap" rel="stylesheet">
 @section('contents')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2 style="text-align: center">
+                    <div class="card-header"><h2 style="text-align: center; font-family: 'Playfair Display', serif; text-decoration-line: underline; text-decoration-style: solid; ">
                             Staff Login
                         </h2></div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('flogin') }}">
+                        <form method="POST" action="{{ route('flogin') }}"  style="font-family: 'Playfair Display', serif;">
                             @csrf
 
                             <div class="form-group row">

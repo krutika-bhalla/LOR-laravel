@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>LOA Management</title>
+        <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -61,14 +62,31 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .header img {
+                float: left;
+                width: 80px;
+                height: 80px;
+                background: #555;
+            }
+
+             .header h1 {
+            position: relative;
+            top: 18px;
+            left: 10px;
+            }  
         </style>
     </head>
     <body>
 
         <div class="flex-center " >
             <div class="content">
-                <h1 class="display-4">K J Somaiya Institute of Engineering and Information Technology</h1>
-                <div class="title m-b-md" style="padding-top: 100px">
+                <div class="header">
+                    <img src="{{ asset('images/logo.png') }}" style="display: inline" >
+                    <h1 class="display-4"  style="display: inline" >K J Somaiya Institute of Engineering and Information Technology</h1>
+                </div>
+                
+                <div class="title m-b-md" style="padding-top: 100px;">
                     LOA Management
                 </div>
 
