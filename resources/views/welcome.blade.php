@@ -87,7 +87,7 @@
                 </div>
                 
                 <div class="title m-b-md" style="padding-top: 100px;">
-                    LOA Management
+                    LOA Records
                 </div>
 
                 <div class="links">
@@ -110,5 +110,36 @@
                 </div>
             </div>
         </div>
+        <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
+        <p class="footer">
+            <span>
+                Created by
+                <a class="link1" href="https://github.com/krutika-bhalla"> Krutika Bhalla,</a> 
+                <a class="link2" href="#"> Prachi Harwara,</a>
+                <a class="link2" href="#"> Shruti Dharap</a> &
+                <a class="link2" href="#"> Snehal Bamane</a>
+                
+            </span>
+</p>
+
+<style>
+.footer {
+    background-color: white;
+    color: #636b6f;
+    width: 100%;
+    /*position: fixed;*/
+    bottom: 0;
+    text-align: center;
+}
+.link1 {
+    color: #636b6f;
+}
+.link2 {
+    color: #636b6f;
+}
+/* main{
+    min-height: calc(100vh - 55.03px - 50px);
+} */
+</style>
     </body>
 </html>
