@@ -11,10 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <script src="https://kit.fontawesome.com/c8a4579880.js" crossorigin="anonymous"></script>
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: maroon;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -57,6 +58,10 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                transition: .4s;
+            }
+            .links > a:hover{
+                color: maroon;
             }
 
             .m-b-md {
@@ -74,7 +79,23 @@
             position: relative;
             top: 18px;
             left: 10px;
-            }  
+            }
+            .square_btn{
+                position: relative;
+                display: inline-block;
+                font-weight: bold;
+                padding: 0.25em 0.5em;
+                text-decoration: none;
+                color: maroon;
+                background: #ECECEC;
+                transition: .4s;
+                font-size: large;
+            }
+
+            .square_btn:hover {
+                background: maroon;
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -83,42 +104,48 @@
             <div class="content">
                 <div class="header">
                     <img src="{{ asset('images/logo.png') }}" style="display: inline" >
-                    <h1 class="display-4"  style="display: inline" >K J Somaiya Institute of Engineering and Information Technology</h1>
+                    <h1 class="display-4"  style="display: inline" ><span style="color: maroon"> K J Somaiya Institute of Engineering and Information Technology</span></h1>
                 </div>
-                
+
                 <div class="title m-b-md" style="padding-top: 100px;">
                     LOA Records
                 </div>
 
                 <div class="links">
                     @if (Route::has('login'))
-                        <div class="links">
+                        <div>
                             @auth
-                                 <a href="{{ url('/formdetails') }}">Form</a>
+                                <a href="{{ url('/formdetails') }}" class="square_btn">
+                                    <i class="fa fa-caret-right"></i> FORM
+                                </a>
 
                             @else
-                                <a href="{{ route('login') }}">Student Login</a>
-                                <a href="auth/flogin">Staff Login</a>
+                                <a href="{{ route('login') }}" class="square_btn">
+                                    <i class="fas fa-sign-in-alt"></i> STUDENT LOGIN
+                                </a>
+                                <a href="auth/flogin" class="square_btn">
+                                    <i class="fas fa-sign-in-alt"></i> STAFF LOGIN
+                                </a>
+
 {{--                                @if (Route::has('register'))--}}
 {{--                                    <a href="{{ route('register') }}">Student Register</a>--}}
 {{--                                @endif--}}
                             @endauth
-
                         </div>
                     @endif
 
                 </div>
             </div>
         </div>
-        <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
+        <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
         <p class="footer">
-            <span>
-                Created by
-                <a class="link1" href="https://github.com/krutika-bhalla"> Krutika Bhalla,</a> 
-                <a class="link2" href="#"> Prachi Harwara,</a>
-                <a class="link2" href="#"> Shruti Dharap</a> &
-                <a class="link2" href="#"> Snehal Bamane</a>
-                
+            <span class="links">
+                <span style="color: #636b6f; font-weight: bold">Developed By:</span>
+                <a  href="https://github.com/krutika-bhalla"> Krutika Bhalla,</a>
+                <a  href="#">Prachi Harwara,</a>
+                <a  href="#">Shruti Dharap</a> <span style="color: #636b6f">&</span>
+                <a  href="#">Snehal Bamane</a>
+
             </span>
 </p>
 

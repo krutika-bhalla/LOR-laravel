@@ -76,20 +76,20 @@
             </div>
         </div>
     </nav>
-    
+
     <main class="py-4">
         @yield('contents')
     </main>
 </div>
 <p class="footer">
-    <span>
-        Created by
-        <a class="link1" href="https://github.com/krutika-bhalla"> Krutika Bhalla,</a> 
-        <a class="link2" href="#"> Prachi Harwara,</a>
-        <a class="link2" href="#"> Shruti Dharap</a> &
-        <a class="link2" href="#"> Snehal Bamane</a>
-        
-    </span>
+            <span class="links">
+                <span style="color: #636b6f;">Developed By:</span>
+                <a  href="https://github.com/krutika-bhalla"> Krutika Bhalla,</a>
+                <a  href="#">Prachi Harwara,</a>
+                <a  href="#">Shruti Dharap</a> <span style="color: #636b6f">&</span>
+                <a  href="#">Snehal Bamane</a>
+
+            </span>
 </p>
 
 <style>
@@ -109,6 +109,19 @@ color: #636b6f;
 }
 main{
 min-height: calc(100vh - 55.03px - 50px);
+}
+.links > a {
+    color: #636b6f;
+    padding: 0 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .05rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .4s;
+}
+.links > a:hover{
+    color: maroon;
 }
 </style>
 </body>

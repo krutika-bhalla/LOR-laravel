@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h2 style="text-align: center;  font-family: 'Playfair Display', serif; text-decoration-line: underline; text-decoration-style: solid; ">
+                        <h2 style="text-align: center;  font-family: 'Playfair Display', serif; font-weight: bold; text-decoration-line: underline; text-decoration-style: solid; ">
                             Staff Register
                         </h2>
                     </div>

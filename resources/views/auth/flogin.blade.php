@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2 style="text-align: center; font-family: 'Playfair Display', serif; text-decoration-line: underline; text-decoration-style: solid; ">
+                    <div class="card-header"><h2 style="text-align: center;font-weight: bold; font-family: 'Playfair Display', serif; text-decoration-line: underline; text-decoration-style: solid; ">
                             Staff Login
                         </h2></div>
 
