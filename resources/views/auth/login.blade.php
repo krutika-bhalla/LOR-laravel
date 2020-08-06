@@ -1,6 +1,7 @@
 @extends('layouts.app')
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;800&display=swap" rel="stylesheet">
 @section('content')
+    <br><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

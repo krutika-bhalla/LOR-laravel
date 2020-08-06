@@ -20,14 +20,17 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+<style>
+
+</style>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: maroon">
         <div class="container">
             @auth
-                <a class="navbar-brand" href="#">Dashboard
+                <a class="navbar-brand" href="#" style="color: #ffffff;">Dashboard
             @else
-                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" style="max-height: 50px; max-width: 50px;">
+                        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" style="max-height: 50px; max-width: 50px;"></a>
             @endauth
                 {{--                    {{ config('app.name', 'Laravel') }}--}}
             </a>
@@ -46,16 +49,16 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('f-login') }}">{{ __('Staff Login') }}</a>
+                            <a class="nav-link" href="{{ route('f-login') }}" style="color: #ffffff;">{{ __('Staff Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register-faculty') }}">{{ __('Staff Register') }}</a>
+                                <a class="nav-link" href="{{ route('register-faculty') }}" style="color: #ffffff;">{{ __('Staff Register') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ ucwords(Auth::user()->name) }} <span class="caret"></span>
                             </a>
 
