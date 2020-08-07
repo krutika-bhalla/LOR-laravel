@@ -3,6 +3,19 @@
 
 @section('contents')
 <br><br>
+<style>
+    .btn{
+        border-bottom-color: maroon;
+        border-top-color: maroon;
+        border-left-color: maroon;
+        border-right-color: maroon;
+        color: maroon;
+    }
+    .btn:hover{
+        background-color: maroon;
+        color: white;
+    }
+</style>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -57,7 +70,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn">
                                         {{ __('Login') }}
                                     </button>
 

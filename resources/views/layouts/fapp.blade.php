@@ -21,7 +21,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <style>
-
+#btn:hover{
+    /*padding-top: 0.25px;*/
+    /*background-color: white;*/
+}
 </style>
 <body>
 <div id="app">
@@ -49,21 +52,21 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('f-login') }}" style="color: #ffffff;">{{ __('Staff Login') }}</a>
+                            <a class="nav-link" id="btn" type="button"  href="{{ route('f-login') }}" style="color: #ffffff;">{{ __('Staff Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register-faculty') }}" style="color: #ffffff;">{{ __('Staff Register') }}</a>
+                                <a class="nav-link" id="hover" href="{{ route('register-faculty') }}" style="color: #ffffff;">{{ __('Staff Register') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" id="hover" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ ucwords(Auth::user()->name) }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" style="color: maroon" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
