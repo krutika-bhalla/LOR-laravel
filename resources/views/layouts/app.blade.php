@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: maroon">
             <div class="container">
                 @auth
-                    <a class="navbar-brand" href="#"style="color: #ffffff;">Dashboard
+                    <a class="navbar-brand" href="#"style="color: #ffffff; font-weight: bold">Form
                 @else
                     <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" style="max-height: 50px; max-width: 50px;">
                 @endauth
