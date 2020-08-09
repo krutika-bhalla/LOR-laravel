@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: maroon">
             <div class="container">
                 @auth
-                    <a class="navbar-brand" href="#">Form
+                    <a class="navbar-brand" href="#"style="color: #ffffff;">Dashboard
                 @else
                     <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" style="max-height: 50px; max-width: 50px;">
                 @endauth
@@ -56,7 +56,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color: #ffffff;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ ucfirst(Auth::user()->name) }} <span class="caret"></span>
+                                    {{ ucwords(Auth::user()->name) }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
