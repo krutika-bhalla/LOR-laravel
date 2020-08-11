@@ -54,4 +54,8 @@ Route::group([ 'middleware' => 'auth:faculty'], function() {
     Route::get('/facultyside', 'FacultyController@viewAllForms')->name('view-forms'); //view forms of all students
 
     Route::get('/viewform/{id}', 'FacultyController@view')->name('view-form'); //view form of specific student
+
+    Route::get('/editform/{id}', 'FacultyController@uploadImage')->name('upload-image');
+
+    Route::post('/editform', 'FacultyController@storeImage')->name('store-image');
 });

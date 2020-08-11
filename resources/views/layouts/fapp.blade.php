@@ -86,7 +86,7 @@
     <main class="py-4">
         @yield('contents')
     </main>
-</div>
+
 <p class="footer">
             <span class="links">
                 <span style="color: #636b6f;">Developed By:</span>
@@ -130,5 +130,6 @@ min-height: calc(100vh - 55.03px - 50px);
     color: maroon;
 }
 </style>
+</div>
 </body>
 </html>

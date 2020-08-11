@@ -39,11 +39,12 @@ class FormController extends Controller
             'noheads.*'   => 'required|numeric',
             'facbranch'  => 'required|string|max: 50',
             'facbranch.*'  => 'required|string|max: 50',
-            'imagelor1' => 'required|mimes:jpg,jpeg,png|max:9999',
-            'imagelor2' => 'required|mimes:jpg,jpeg,png|max:9999',
-            'imagelor3' => 'required|mimes:jpg,jpeg,png|max:9999',
-            'imagelor' => 'array| max:3',
-            'imagelor.*'  => 'required|max:9999',
+//            'imagelor1' => 'required|mimes:jpg,jpeg,png|max:9999',
+//            'imagelor2' => 'required|mimes:jpg,jpeg,png|max:9999',
+//            'imagelor3' => 'required|mimes:jpg,jpeg,png|max:9999',
+//            'imagelor' => 'array| max:3',
+//            'imagelor.*'  => 'required|max:9999',
+
 //            'file.*' => 'max:9999',
 //            ,
 //            'imagescorecards.*'  => 'required|mimes:jpg,jpeg,png|max:9999',
@@ -64,34 +65,34 @@ class FormController extends Controller
         $formdetails->user_id = $id;
         $formdetails->save();
 
-        //for Images
-        $name = Auth::User()->name;
-        $index = 1;
-        $filenames = [];
-        unset($request["_token"]);
-        $files = Arr::flatten($request->all()); // laravel helper to flatten array :3
-
-        foreach ($files as $item) {
-            $file = $item;
-            $extension = $file->getClientOriginalExtension();
-            $file = $item;
-            $img_name = strtolower(str_replace(' ','',$name));
-            $filename = $img_name. $index .'.'.time().'.'.$extension; // this will be inserted in db
-            $filenames[] = $filename;
-            $destinationPath = 'images/uploads/';
-            $img = Image::make($file->path());
-            $img->resize(300, 300, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$filename);
-
-            // save to db
-            $model = new FormImages();
-            $model->id = $id;
-            $model->imagelor = $filename;
-            $model->save();
-
-            $index++;
-        }
+        //for Images (Uncommit and resolve)
+//        $name = Auth::User()->name;
+//        $index = 1;
+//        $filenames = [];
+//        unset($request["_token"]);
+//        $files = Arr::flatten($request->all()); // laravel helper to flatten array :3
+//
+//        foreach ($files as $item) {
+//            $file = $item;
+//            $extension = $file->getClientOriginalExtension();
+//            $file = $item;
+//            $img_name = strtolower(str_replace(' ','',$name));
+//            $filename = $img_name. $index .'.'.time().'.'.$extension; // this will be inserted in db
+//            $filenames[] = $filename;
+//            $destinationPath = 'images/uploads/';
+//            $img = Image::make($file->path());
+//            $img->resize(300, 300, function ($constraint) {
+//                $constraint->aspectRatio();
+//            })->save($destinationPath.'/'.$filename);
+//
+//            // save to db
+//            $model = new FormImages();
+//            $model->id = $id;
+//            $model->imagelor = $filename;
+//            $model->save();
+//
+//            $index++;
+//        }
 
 
         for($i = 0; $i < count($request->facbranch); $i++) {

@@ -244,40 +244,36 @@
                     <label for="dateofissue">Date of Issue of RL</label>
                     <input type="date" class="form-control" id="exampleDate" placeholder="Enter Date of Issue of RL" name="dateofissue" required>
                 </div>
-                <div class="form-group">
-                    <label>Upload Letter of Recommendation</label>
-                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor1" required>
-                </div>
-                <div class="form-group">
-                    <label>Upload Score Card</label>
-                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor2" required>
-                </div>
-                <div class="form-group">
-                    <label>Upload Score Card</label>
-                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor3" required>
-                </div>
-                <script>
-                   $('#project-form').submit(function(e) 
-                        e.preventDefault();
-                        if(i == 3) {
-                            $('.custom-file input').change(function (e) {
-                                var files = [];
-                                for (var i = 0; i < $(this)[0].files.length; i++) {
-                                    files.push($(this)[0].files[i].name);
-                                }
-                                $(this).next('#custom-file-label').html(files.join(', '));
-                            });
-                        }
-                        else {
-                            console.log("cannot add more images");
-                        }
-                        i++;
-                    });
-                </script>
 {{--                <div class="form-group">--}}
-{{--                    <label>Upload Scorecard/s</label>--}}
-{{--                    <input type="file" class="form-control-file" name="imagelor[]" multiple required>--}}
+{{--                    <label>Upload Letter of Recommendation</label>--}}
+{{--                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor1" required>--}}
 {{--                </div>--}}
+{{--                <div class="form-group">--}}
+{{--                    <label>Upload Score Card</label>--}}
+{{--                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor2" required>--}}
+{{--                </div>--}}
+{{--                <div class="form-group">--}}
+{{--                    <label>Upload Score Card</label>--}}
+{{--                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor3" required>--}}
+{{--                </div>--}}
+{{--                <script>--}}
+{{--                   $('#project-form').submit(function(e) --}}
+{{--                        e.preventDefault();--}}
+{{--                        if(i == 3) {--}}
+{{--                            $('.custom-file input').change(function (e) {--}}
+{{--                                var files = [];--}}
+{{--                                for (var i = 0; i < $(this)[0].files.length; i++) {--}}
+{{--                                    files.push($(this)[0].files[i].name);--}}
+{{--                                }--}}
+{{--                                $(this).next('#custom-file-label').html(files.join(', '));--}}
+{{--                            });--}}
+{{--                        }--}}
+{{--                        else {--}}
+{{--                            console.log("cannot add more images");--}}
+{{--                        }--}}
+{{--                        i++;--}}
+{{--                    });--}}
+{{--                </script>--}}
 
 
                 <button type="submit" class="btn btn-success" value="Submit Page">Submit</button>

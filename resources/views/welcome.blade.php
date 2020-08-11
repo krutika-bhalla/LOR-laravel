@@ -96,6 +96,22 @@
                 background: maroon;
                 color: white;
             }
+
+            @media (max-width: 750px) {
+                .header img {
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    background: #555;
+                }
+
+                .header h1 {
+                    position: relative;
+                    top: 18px;
+                    left: 10px;
+                    font-size: 15px;
+                }
+            }
         </style>
     </head>
     <body>
@@ -104,7 +120,7 @@
             <div class="content">
                 <div class="header">
                     <img src="{{ asset('images/logo.png') }}" style="display: inline" >
-                    <h1 class="display-4"  style="display: inline" ><span style="color: maroon"> K J Somaiya Institute of Engineering and Information Technology</span></h1>
+                    <h1 class="display-4" style="display: inline" ><span style="color: maroon"> K J Somaiya Institute of Engineering and Information Technology</span></h1>
                 </div>
 
                 <div class="title m-b-md" style="padding-top: 100px;">

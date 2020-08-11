@@ -16,7 +16,7 @@ class CreateFormimagesTable extends Migration
         Schema::create('formimages', function (Blueprint $table) {
             $table->increments('id');
             $table->mediumText('imagelor');
-//            $table->string('imagescorecards');
+            $table->string('image_fac');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
