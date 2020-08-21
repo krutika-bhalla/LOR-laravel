@@ -36,7 +36,7 @@ class FacultyRegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ])]);
-        return redirect()->intended('/facultyside');
+        return redirect()->intended('/welcome2');
     }
 
 }
