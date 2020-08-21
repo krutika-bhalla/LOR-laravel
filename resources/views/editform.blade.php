@@ -1,5 +1,23 @@
 @extends('layouts.app')
 @section('content')
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        <img src="images/{{ Session::get('image') }}">
+    @endif
+
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <style>
         .header img {
             float: left;
@@ -159,7 +177,9 @@
 
 
         @endforeach
+
 <form action="{{route('store-image')}}" method="POST" enctype="multipart/form-data">
+    @csrf
             <div class="form-group">
                 <label><b>Upload Score Card</b></label>
                 <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="image" required>
