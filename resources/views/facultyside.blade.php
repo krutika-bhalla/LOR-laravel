@@ -1,5 +1,12 @@
 @extends('layouts.fapp')
 @section('contents')
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        <img src="images/uploads/facultyside_img{{ Session::get('image') }}">
+    @endif
 
     <div class="table-responsive">
         <table id="mytable" class="table table-bordered table-striped display">
@@ -27,7 +34,8 @@
         {{--                    @endforeach--}}
                             <td>{{$fd->email}}</td>
                             <td>{{date('d/m/Y' , strtotime($fd->dateofissue))}}</td>
-
+{{--                            @foreach($facimages as $fi)--}}
+{{--                            @if()--}}
                             <td><a href="/viewform/{{$fd->user_id}}" type="button" class="btn btn-outline-success">View</a></td>
                             <td><a href="/editform/{{$fd->user_id}}" type="button" class="btn btn-outline-danger">Edit</a></td>
                         </tr>

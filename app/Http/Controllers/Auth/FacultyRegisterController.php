@@ -36,7 +36,7 @@ class FacultyRegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ])]);
-        return redirect()->intended('/welcome2');
+        return redirect()->intended('/welcome2')->with('success','You have successfully Registered. Please Login');
     }
 
 }

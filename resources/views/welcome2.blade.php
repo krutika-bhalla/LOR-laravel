@@ -137,9 +137,7 @@
                         </a>
 
                     @else
-                        <a href="{{ route('login') }}" class="square_btn">
-                            <i class="fas fa-sign-in-alt"></i> STUDENT LOGIN
-                        </a>
+
                         <a href="auth/flogin" class="square_btn">
                             <i class="fas fa-sign-in-alt"></i> STAFF LOGIN
                         </a>
@@ -150,7 +148,12 @@
                     @endauth
                 </div>
             @endif
-
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @endif
         </div>
     </div>
 </div>

@@ -39,7 +39,8 @@ class FacultyController extends Controller
         $users = User::all();
         $formdetails = FormDetails::all();
         $formfaculty = FormFaculty::all();
-        return view('/facultyside')->with('users', $users)->with('formdetails', $formdetails)->with('formfaculty', $formfaculty);
+        $facimgs = FacImages::all();
+        return view('/facultyside')->with('users', $users)->with('formdetails', $formdetails)->with('formfaculty', $formfaculty)->with('facimages', $facimgs);
     }
     //view one form
     public function view($id){
@@ -89,7 +90,7 @@ class FacultyController extends Controller
         $imgs->image_fac = $imageName;
         $imgs->save();
 
-        return back()
+        return redirect('/facultyside')
             ->with('success','You have successfully upload image.')
             ->with('image',$imageName);
     }
