@@ -91,7 +91,7 @@ class FacultyController extends Controller
         $imgs->save();
 
         return redirect('/facultyside')
-            ->with('success','You have successfully upload image.')
+            ->with('success','Image Uploaded Successfully')
             ->with('image',$imageName);
     }
 }

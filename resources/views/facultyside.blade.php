@@ -5,7 +5,7 @@
             <button type="button" class="close" data-dismiss="alert">×</button>
             <strong>{{ $message }}</strong>
         </div>
-        <img src="images/uploads/facultyside_img{{ Session::get('image') }}">
+{{--        <img src="images/uploads/facultyside_img{{ Session::get('image') }}">--}}
     @endif
 
     <div class="table-responsive">

@@ -141,16 +141,17 @@
                         <a href="auth/flogin" class="square_btn">
                             <i class="fas fa-sign-in-alt"></i> STAFF LOGIN
                         </a>
-
+                        <br>
                         {{--                                @if (Route::has('register'))--}}
                         {{--                                    <a href="{{ route('register') }}">Student Register</a>--}}
                         {{--                                @endif--}}
                     @endauth
                 </div>
             @endif
+
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+{{--                        <button type="button" class="close" data-dismiss="alert">×</button>--}}
                         <strong>{{ $message }}</strong>
                     </div>
                 @endif

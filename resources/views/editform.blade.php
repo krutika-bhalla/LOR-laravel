@@ -175,7 +175,7 @@
 <form action="{{route('store-image')}}" method="POST" enctype="multipart/form-data">
     @csrf
             <div class="form-group">
-                <label><b>Upload Score Card</b></label>
+                <label><b>Upload Letter</b></label>
                 <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="image" required>
             </div>
             <br>
