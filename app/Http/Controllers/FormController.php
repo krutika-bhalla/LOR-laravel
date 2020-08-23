@@ -16,6 +16,7 @@ use Intervention\Image\Facades\Image;
 class FormController extends Controller
 {
     public function index(){
+
         return view('formdetails');
     }
 

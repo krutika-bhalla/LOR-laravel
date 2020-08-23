@@ -134,6 +134,7 @@
                                 <a href="{{ url('/formdetails') }}" class="square_btn">
                                     <i class="fa fa-caret-right"></i> FORM
                                 </a>
+                                {{dd()}}
 
                             @else
                                 <a href="{{ route('login') }}" class="square_btn">
