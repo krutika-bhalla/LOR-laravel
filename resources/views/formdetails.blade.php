@@ -244,7 +244,11 @@
                     <label for="dateofissue">Date of Issue of RL</label>
                     <input type="date" class="form-control" id="exampleDate" placeholder="Enter Date of Issue of RL" name="dateofissue" required>
                 </div>
-{{--                <div class="form-group">--}}
+                <div class="form-group">
+                    <label>Upload Files</label>
+                    <input class="form-control-file" id="custom-file-label" type="file" accept="application/pdf" name="image_pdf" placeholder="Upload pdf format of scorecards" required>
+                </div>
+                    {{--                <div class="form-group">--}}
 {{--                    <label>Upload Letter of Recommendation</label>--}}
 {{--                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor1" required>--}}
 {{--                </div>--}}

@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\FacImages;
 use App\FormDetails;
 use App\FormFaculty;
 use App\FormImages;
 use App\User;
+//use Illuminate\Validation\Validator;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use Barryvdh\DomPDF\Facade as PDF;
 
 
 class FormController extends Controller
@@ -40,7 +43,7 @@ class FormController extends Controller
             'noheads.*'   => 'required|numeric',
             'facbranch'  => 'required|string|max: 50',
             'facbranch.*'  => 'required|string|max: 50',
-//            'imagelor1' => 'required|mimes:jpg,jpeg,png|max:9999',
+            'image_pdf' => 'required|mimes:pdf|max:9999',
 //            'imagelor2' => 'required|mimes:jpg,jpeg,png|max:9999',
 //            'imagelor3' => 'required|mimes:jpg,jpeg,png|max:9999',
 //            'imagelor' => 'array| max:3',
@@ -53,6 +56,23 @@ class FormController extends Controller
         ]);
 
         $id = Auth::User()->id;
+        $name = Auth::User()->name;
+        //$pdf_name = time().'.'.$request->image_pdf->extension();
+        $pdf_name = $name.'-'.$id.'-'.time().'-'.'files.'.$request->image_pdf->extension();
+
+        $pdf_file = $request->image_pdf->move(public_path('images/uploads/student_pdfs'), $pdf_name);
+
+        //store in db
+        $pdf = new FormImages();
+        $pdf->user_id = $id;
+        $pdf->image_pdf = $pdf_name;
+        $pdf->save();
+        //$pdf_name = time() . ".pdf";
+        //$path = public_path('/images/uploads/student_pdfs' . $pdf_name);
+        //$request->get('pdf_image')->move(public_path('images/uploads/student_pdfs') . $pdfname);
+        //dd($pdf_file);
+
+
 
         $formdetails = new FormDetails();
         $formdetails->name = $request->name;
@@ -65,6 +85,8 @@ class FormController extends Controller
         $formdetails->rl = $request->rl;
         $formdetails->user_id = $id;
         $formdetails->save();
+
+
 
         //for Images (Uncommit and resolve)
 //        $name = Auth::User()->name;
@@ -105,7 +127,9 @@ class FormController extends Controller
             $formfaculty->save();
         }
 
-        return redirect('/form-filled-successfully');
+        return redirect('/form-filled-successfully')
+            ->with('success','PDF Uploaded Successfully')
+            ->with('image',$imageName);;
     }
 
 

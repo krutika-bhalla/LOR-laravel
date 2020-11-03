@@ -13,9 +13,9 @@ class CreateFormimagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('formimages', function (Blueprint $table) {
+        Schema::create('form_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumText('imagelor');
+            $table->mediumText('image_pdf');
             //
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

@@ -58,26 +58,7 @@ class FacultyController extends Controller
     }
     //store Image
     public function storeImage(Request $request){
-//        $validate = Validator::make($request->all(),[
-//            'image' => 'required|mimes:jpg,jpeg,png|max:9999',
-//        ]);
-//        $file = $request->image;
-//        $extension = $file->getClientOriginalExtension();
-//        $file = $request->file('image');
-//        $destinationPath = 'uploads/facultyside_img';
-//        $img_name = strtolower(str_replace(' ','',$request->name));
-//        $filename = $img_name.'.'.time().'.'.$extension; // this will be inserted in db
-//        // resizing to optimize loading time.
-//        $img = Image::make($file->getRealPath());
-//        $img->resize(1000, 1000, function ($constraint) {
-//            $constraint->aspectRatio();
-//        })->save($destinationPath.'/'.$filename);
-//
-//        //db
-//        $imgs = new FacImages();
-//        $imgs->image_fac = $filename;
-//        $imgs->save();
-//        return redirect()->route('view-forms');
+
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
