@@ -3,6 +3,7 @@
 @section('content')
     <br><br>
     <style>
+        
         .btn{
             border-bottom-color: maroon;
             border-top-color: maroon;
@@ -14,8 +15,13 @@
             background-color: maroon;
             color: white;
         }
+        .bgimg{
+
+        }
     </style>
+<div class="bgimg">
 <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -23,6 +29,7 @@
                         Student Login
                     </h2>
                 </div>
+
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}"  style="font-family: 'Playfair Display', serif;">
@@ -85,6 +92,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 @endsection

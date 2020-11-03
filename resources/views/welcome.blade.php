@@ -22,6 +22,7 @@
                 margin: 0;
             }
 
+
             .full-height {
                 height: 100vh;
             }
@@ -122,7 +123,6 @@
                     <img src="{{ asset('images/logo.png') }}" style="display: inline" >
                     <h1 class="display-4" style="display: inline" ><span style="color: maroon"> K J Somaiya Institute of Engineering and Information Technology</span></h1>
                 </div>
-
                 <div class="title m-b-md" style="padding-top: 100px;">
                     LOA Records
                 </div>
@@ -134,7 +134,7 @@
                                 <a href="{{ url('/formdetails') }}" class="square_btn">
                                     <i class="fa fa-caret-right"></i> FORM
                                 </a>
-                                {{dd()}}
+
 
                             @else
                                 <a href="{{ route('login') }}" class="square_btn">

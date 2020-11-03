@@ -55,7 +55,7 @@
 </style>
     <div class="container-fluid">
         <div class="col-md-12">
-            <a href="javascript:void(0)" onclick="window.print()" class="btn"><i class="fa fa-download" aria-hidden="true"></i> Export PDF</a>
+            <button onclick="window.print()" class="btn"><i class="fa fa-download" aria-hidden="true"></i> Export PDF</button>
         </div>
         <br>
 
