@@ -155,8 +155,16 @@
             <input type="date" class="form-control" id="exampleDate" placeholder="Enter Date of Issue of RL" value="{{$fd->dateofissue}}" readonly required>
         </div>
     </div>
+        @endforeach
+        @foreach($form_images as $fi)
+            <div class="form-group">
+                <label for="dateofissue"><b>Student Files</b></label>
+                <a href="http://localhost:8000/images/uploads/student_pdfs/{{$fi->image_pdf}}" target="_blank" class="form-control" id="exampleDate" type="button"  readonly required>{{$fi->image_pdf}}</a>
+{{--                <embed src="{{ ::url($fi->image_pdf) }}" style="width:600px; height:800px;" frameborder="0">--}}
+                {{--                --}}
 
-
+{{--                --}}
+            </div>
         @endforeach
 
 

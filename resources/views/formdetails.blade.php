@@ -248,46 +248,9 @@
                     <label>Upload Files</label>
                     <input class="form-control-file" id="custom-file-label" type="file" accept="application/pdf" name="image_pdf" placeholder="Upload pdf format of scorecards" required>
                 </div>
-                    {{--                <div class="form-group">--}}
-{{--                    <label>Upload Letter of Recommendation</label>--}}
-{{--                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor1" required>--}}
-{{--                </div>--}}
-{{--                <div class="form-group">--}}
-{{--                    <label>Upload Score Card</label>--}}
-{{--                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor2" required>--}}
-{{--                </div>--}}
-{{--                <div class="form-group">--}}
-{{--                    <label>Upload Score Card</label>--}}
-{{--                    <input type="file" class="form-control-file" id="custom-file-label" accept="image/*" name="imagelor3" required>--}}
-{{--                </div>--}}
-{{--                <script>--}}
-{{--                   $('#project-form').submit(function(e) --}}
-{{--                        e.preventDefault();--}}
-{{--                        if(i == 3) {--}}
-{{--                            $('.custom-file input').change(function (e) {--}}
-{{--                                var files = [];--}}
-{{--                                for (var i = 0; i < $(this)[0].files.length; i++) {--}}
-{{--                                    files.push($(this)[0].files[i].name);--}}
-{{--                                }--}}
-{{--                                $(this).next('#custom-file-label').html(files.join(', '));--}}
-{{--                            });--}}
-{{--                        }--}}
-{{--                        else {--}}
-{{--                            console.log("cannot add more images");--}}
-{{--                        }--}}
-{{--                        i++;--}}
-{{--                    });--}}
-{{--                </script>--}}
-
-
                 <button type="submit" class="btn btn-success" value="Submit Page">Submit</button>
             </form>
         </div>
-
-
-
-
-    {{--    </div>--}}
 
     <script src="" async defer></script>
     </body>

@@ -37,7 +37,14 @@
 {{--                            @foreach($facimages as $fi)--}}
 {{--                            @if()--}}
                             <td><a href="/viewform/{{$fd->user_id}}" type="button" class="btn btn-outline-success">View</a></td>
-                            <td><a href="/editform/{{$fd->user_id}}" type="button" class="btn btn-outline-danger">Edit</a></td>
+{{--                            @foreach($facimages as $fa)--}}
+{{--                            @if($fa != True){--}}
+                                <td><a href="/editform/{{$fd->user_id}}" type="button" class="btn btn-outline-danger">Edit</a></td>
+{{--                                }--}}
+{{--                                @else{
+                            <td><a href="/editform/{{$fd->user_id}}" type="button" class="btn btn-outline-danger" disabled="true">Edit</a></td>
+                            }--}}
+{{--                                @endforeach--}}
                         </tr>
                     @endforeach
 
