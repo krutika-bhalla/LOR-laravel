@@ -7,7 +7,13 @@
         </div>
 {{--        <img src="images/uploads/facultyside_img{{ Session::get('image') }}">--}}
     @endif
+    <style>
 
+    </style>
+    <!-- Search form -->
+        
+    <!-- end search -->
+    <br/>
     <div class="table-responsive">
         <table id="mytable" class="table table-bordered table-striped display">
             <thead>

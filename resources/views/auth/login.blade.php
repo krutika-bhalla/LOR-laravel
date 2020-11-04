@@ -3,7 +3,7 @@
 @section('content')
     <br><br>
     <style>
-        
+
         .btn{
             border-bottom-color: maroon;
             border-top-color: maroon;
@@ -15,11 +15,8 @@
             background-color: maroon;
             color: white;
         }
-        .bgimg{
-
-        }
     </style>
-<div class="bgimg">
+<div>
 <div class="container">
 
     <div class="row justify-content-center">
